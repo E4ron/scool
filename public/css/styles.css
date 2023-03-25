@@ -1,0 +1,297 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-SemiBold.woff2');
+    font-weight: bold;
+}
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../fonts/fontawesome-webfont.woff2');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat';
+  }
+  html,
+  body {
+    height: 100%;
+  }
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .content {
+    flex: 1 0 auto;
+  }
+  .footer {
+    flex: 0 0 auto;
+  }
+
+.content-container {
+    margin-bottom: 10px;
+    height: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+.alert {
+    position: fixed;
+    right: 40px;
+    top: 80px;
+}
+
+/* Шапка */
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 200;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 50px 0 rgb(0 0 0 / 50%);
+    padding: 0 20px;
+    font-size: 18px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.contaner-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1280px;
+}
+
+.header-title-out {
+    font-size: 12px;
+}
+.header-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-nav a {
+    margin: 10px 10px 10px 10px;
+}
+
+/* Контейнер <div> - необходим для размещения выпадающего содержимого */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    line-height: 70px;
+    cursor: pointer;
+  }
+  
+  /* Выпадающее содержимое (скрыто по умолчанию) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: max-content;
+  }
+  
+  /* Ссылки внутри выпадающего списка */
+  .dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    font-size: 12px;
+    padding: inherit;
+  }
+
+  .dropbtn::after {
+    content: "\f107 ";
+    font-family: 'FontAwesome';
+    margin-left: 7px;
+    opacity: 0.8;
+  }
+
+  /* Изменение цвета выпадающих ссылок при наведении курсора */
+.dropdown-content a:hover {background-color: #ddd; color: #0d6efd;}
+
+/* Показать выпадающее меню при наведении курсора */
+.dropdown:hover .dropdown-content {display: block;}
+
+
+/* Новости */
+.card-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    text-align: left;
+}
+.card-image {
+    width: 370px;
+    height: 270px;
+    max-width: 370px;
+}
+.card-image img {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.card-text {
+    padding-left: 10px;
+    width: 720px;
+}
+.card-text p {
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 137%;
+    text-transform: none;
+    overflow: hidden; /* Обрезаем все, что не помещается в область */
+    text-overflow: ellipsis; /* Добавляем многоточие */
+}
+
+/* Подвал */
+
+footer {
+    margin-bottom: 10px;
+    height: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 20;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* Контакты */
+
+.contact-contaner {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.contact-contaner div {
+  margin: 0px 10px 0px 10px;
+}
+
+.contact-contaner p {
+  text-align: left;
+}
+
+/* Документы */
+.container-document {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 120px;
+}
+.contact-info {
+  width: 450px;
+}
+.document {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 300px;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 10px 0 rgb(0 0 0 / 50%);
+  margin: 10px auto;
+  border-radius: 10px;
+  text-align: left;
+  font-size: 12px;
+}
+.document div {
+  margin-left: 10px;
+}
+
+/* feedback */
+
+.feedback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.feedback-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+}
+.feedback-container div label {
+  text-align: -webkit-right;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.feedback-container div input,textarea {
+  width: 400px;
+}
+
+/* Версия для слабовидящих */
+.visually-impaired {
+  color: black;
+}
+.visually-impaired:hover {
+  cursor: pointer;
+}
+.visually-impaired image {
+  width: 50px;
+}
+
+/* Преподователи */
+.teachers-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.teacher  {
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 10px 0 rgb(0 0 0 / 50%);
+  margin: 10px 10px 10px 10px;
+  border-radius: 20px;
+}
+.teachers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+}
+.teachers-i {
+  width: 250px;
+  height: 350px;
+}
+
+
+/* intelligences-text */
+.intelligences-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.intelligences-text {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  width: 600px;
+}
