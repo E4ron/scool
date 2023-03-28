@@ -3,38 +3,40 @@
 @section('title', 'Добавить')
 
 @section('content')
-<h2 class="mt-2">Добавить контакты</h2>
+<div>
+    <h2 class="mt-2">Добавить контакты</h2>
 
 <form method="post" action="{{route('admin.contacts.create')}}" enctype="multipart/form-data">
     @csrf
     <div class="mb-3">
         <label class="form-label">Телефон</label>
-        <input required type="phone" name="phone">
+        <input required type="phone" name="phone" class="form-control">
     </div>
     <div class="mb-3">
         <label class="form-label">Почта</label>
-        <input required type="email" name="email">
+        <input required type="email" name="email" class="form-control">
     </div>
     <div class="mb-3">
         <label class="form-label">Факс</label>
-        <input required type="text" name="fax">
+        <input required type="text" name="fax" class="form-control">
     </div>
     <div class="mb-3">
         <label class="form-label">Адрес</label>
-        <input required type="text" name="address">
+        <input required type="text" name="address" class="form-control">
     </div>
     <div class="mb-3">
         <label class="form-label">Время работы</label>
-        <input required type="text" name="timejob">
+        <input required type="text" name="timejob" class="form-control">
     </div>
     <div class="mb-3">
         <label class="form-label">Длительность учебной недели</label>
-        <input required type="text" name="duration">
+        <input required type="text" name="duration" class="form-control">
     </div>
     <div class="mb-3">
         <label class="form-label">Приёмное время</label>
-        <input required type="text" name="reception">
+        <input required type="text" name="reception" class="form-control">
     </div>
     <button type="submit" class="btn btn-primary">Добавить</button>
 </form>
+</div>
 @endsection

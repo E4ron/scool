@@ -3,6 +3,7 @@
 @section('title', 'Редактирование товара')
 
 @section('content')
+<div>
     <form method="post" action="{{route('admin.intelligences.edit', $intelligence)}}" enctype="multipart/form-data">
         @method('post')
         @csrf
@@ -24,4 +25,5 @@
         </div>
         <button type="submit" class="btn btn-primary">Обновить</button>
     </form>
+</div>
 @endsection

@@ -96,7 +96,6 @@
         </div>
     </div>
 
-
 <script src="https://lidrekon.ru/slep/js/jquery.js"></script>
 <script src="https://lidrekon.ru/slep/js/uhpv-full.min.js"></script>
 <script src="{{asset('js/jquery.min.js')}}"></script>

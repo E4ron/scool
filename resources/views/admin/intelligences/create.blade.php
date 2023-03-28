@@ -3,7 +3,8 @@
 @section('title', 'Создание основные сведения')
 
 @section('content')
-<h2 class="mt-2">Создание</h2>
+<div>
+    <h2 class="mt-2">Создание</h2>
 
 <form method="post" action="{{route('admin.intelligences.create')}}" enctype="multipart/form-data">
         @csrf
@@ -26,4 +27,5 @@
         </div>
         <button type="submit" class="btn btn-primary">Создать</button>
 </form>
+</div>
 @endsection

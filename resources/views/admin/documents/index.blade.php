@@ -3,15 +3,15 @@
 @section('title', 'Документы')
 
 @section('content')
-    <a href="{{route('admin.documents.createPage')}}" class="btn btn-success">Добавить документ</a>
+<div>
+    <a href="{{route('admin.documents.createPage')}}" class="btn btn-primary">Добавить документ</a>
 
-    <div class="d-flex flex-wrap">
+    <div class="card-container">
         @forelse($documents as $document)
-            <div class="card me-2" style="width: 18rem;">
+            <div class="card">
                 <a href="{{$document->document}}" download><img width="50px" src="/storage/doc.png" alt="{{$document->name}}"></a>
-                <div class="card-body">
-                    <p class="card-text">{{$document->name}}</p>
-                    <a href="{{route('admin.documents.updatePage', $document)}}" class="btn btn-primary">Редактировать</a>
+                <div class="card-text">
+                    <p >{{$document->name}}</p>
                     <a href="{{route('admin.documents.delete', $document)}}" class="btn btn-danger">Удалить</a>
                 </div>
             </div>
@@ -21,4 +21,5 @@
             </div>
         @endforelse
     </div>
+</div>
 @endsection

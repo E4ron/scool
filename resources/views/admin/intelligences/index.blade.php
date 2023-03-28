@@ -3,14 +3,14 @@
 @section('title', 'Основные сведения')
 
 @section('content')
+<div>
     <a href="{{route('admin.intelligences.createPage')}}" class="btn btn-success">Создать сведения</a>
-    <div class="d-flex flex-wrap">
+    <div class="card-container">
         @forelse($intelligences as $intelligence)
-            <div class="card me-2" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{$intelligence->name}}</h5>
-                    <p class="card-text">{{$intelligence->text}}</p>
-                    
+            <div class="card" >
+                <div class="card-text">
+                    <p>{{$intelligence->name}}</p>
+                    <p>{{$intelligence->text}}</p>
                     <a href="{{route('admin.intelligences.updatePage', $intelligence)}}" class="btn btn-primary">Редактировать</a>
                     <a href="{{route('admin.intelligences.delete', $intelligence)}}" class="btn btn-danger">Удалить</a>
                 </div>
@@ -22,4 +22,5 @@
         @endforelse
 
     </div>
+</div>
 @endsection

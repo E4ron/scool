@@ -12,28 +12,28 @@
 
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/styles.css')}}">
-
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-
-        .change-font {
-            font-family: 'Roboto', sans-serif;
-        }
-    </style>
 </head>
-<body class="container">
-<div class="btn-group mt-3 w-100 ">
-    <a href="{{route('admin.posts.index')}}" class="btn btn-outline-primary">Новости</a>
-    <a href="{{route('admin.teachers.index')}}" class="btn btn-outline-primary">Преподователи</a>
-    <a href="{{route('admin.contacts.index')}}" class="btn btn-outline-primary">Контакты</a>
-    <a href="{{route('admin.documents.index')}}" class="btn btn-outline-primary">Документы</a>
-    <a href="{{route('admin.categories.index')}}" class="btn btn-outline-primary">Категории Основные сведения</a>
-    <a href="{{route('admin.intelligences.index')}}" class="btn btn-outline-primary">Основные сведения</a>
+<body>
+<div class="admin-container">
+    <div class="admin-panel">
+        <h2>Админ панель</h2><a href="{{route('logout')}}" class="btn">Выход</a>
+        <div class="nav-admin">
+            <a href="{{route('admin.posts.index')}}" class="">Новости</a>
+            <a href="{{route('admin.contacts.index')}}" class="">Контакты</a>
+            <a href="{{route('admin.documents.index')}}" class="">Документы</a>
+            <a href="{{route('admin.teachers.index')}}" class="">Преподователи</a>
+            <div class="dropdown-admin">
+                <a class="dropbtn-admin">Основные сведения</a>
+                <div class="dropdown-content-admin">
+                    <a href="{{route('admin.categories.index')}}" class="">Категория</a>
+                    <a href="{{route('admin.intelligences.index')}}" class="">Основные сведения</a>
+                </div>
+              </div>
+        </div>
+    </div>
+    @yield('content')
 </div>
-<a href="{{route('logout')}}" class="btn">Выход</a>
-        @yield('content')
+
 <script src="{{asset('js/jquery.min.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 @stack('scripts')

@@ -3,7 +3,8 @@
 @section('title', 'Создание категории')
 
 @section('content')
-<h2 class="mt-2">Создание категории</h2>
+<div>
+    <h2 class="mt-2">Создание категории</h2>
 
 <form method="post" action="{{route('admin.categories.create')}}">
     @csrf
@@ -13,4 +14,5 @@
     </div>
     <button type="submit" class="btn btn-primary">Создать</button>
 </form>
+</div>
 @endsection

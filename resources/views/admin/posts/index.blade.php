@@ -3,15 +3,15 @@
 @section('title', 'Новости')
 
 @section('content')
-    <a href="{{route('admin.posts.createPage')}}" class="btn btn-success">Создать новость</a>
-
-    <div class="d-flex flex-wrap">
-        @forelse($posts as $post)
-            <div class="card me-2" style="width: 18rem;">
-                <img src="{{$post->image}}" class="card-img-top" alt="{{$post->title}}">
-                <div class="card-body">
-                    <h5 class="card-title">{{$post->title}}</h5>
-                    <p class="card-text">{{$post->text}} шт.</p>
+    <div class="admin-content">
+        <a href="{{route('admin.posts.createPage')}}" class="btn btn-primary">Создать</a>
+        <div class="card-container">
+            @forelse($posts as $post)
+            <div class="card">
+                <img src="{{$post->image}}" class="" alt="{{$post->title}}">
+                <div class="card-text">
+                    <p class="">{{$post->title}}</p>
+                    <p class="">{{$post->text}}</p>
                     <a href="{{route('admin.posts.updatePage', $post)}}" class="btn btn-primary">Редактировать</a>
                     <a href="{{route('admin.posts.delete', $post)}}" class="btn btn-danger">Удалить</a>
                 </div>
@@ -21,8 +21,6 @@
                 Новостей нет
             </div>
         @endforelse
-        @auth
-            <a href="{{route('logout')}}">Выход</a>
-            @endauth
+        </div>
     </div>
 @endsection

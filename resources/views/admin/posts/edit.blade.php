@@ -3,6 +3,8 @@
 @section('title', 'Редактирование товара')
 
 @section('content')
+<div>
+    <h2 class="mt-2">Редактировать новость</h2>
     <form method="post" action="{{route('admin.posts.edit', $post)}}" enctype="multipart/form-data">
         @method('post')
         @csrf
@@ -20,4 +22,5 @@
         </div>
         <button type="submit" class="btn btn-primary">Обновить</button>
     </form>
+</div>
 @endsection

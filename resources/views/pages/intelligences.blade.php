@@ -9,15 +9,22 @@
     <div class="intelligences-container">
         @if($categories)
         @foreach($categories as $category)
-        <h5>{{$category->title}}</h5>
         <div class="intelligences-card">
-            @foreach($intelligences as $intelligence)
-            @if($category->id === $intelligence->categoryintelligences_id)
-            <div class="intelligences-text">
-                <p>{{$intelligence->name}}</p><p>{{$intelligence->text}}</p>
-            </div>
-            @endif
-            @endforeach
+            <h2>{{$category->title}}</h5>
+                <div class="intelligences">
+                    @foreach($intelligences as $intelligence)
+                    @if($category->id === $intelligence->categoryintelligences_id)
+                    <div class="intelligences-text">
+                        <div class="intelligences-text-margin">
+                            <h6 class="intelligences-text-name">{{$intelligence->name}}</h6>
+                        </div>
+                        <div class="intelligences-text-margin">
+                            <p class="intelligences-text-text">{{$intelligence->text}}</p>
+                        </div>
+                    </div>
+                    @endif
+                    @endforeach
+                </div>
         </div>
         @endforeach
         @endif

@@ -3,20 +3,19 @@
 @section('title', 'Контакты')
 
 @section('content')
-    <a href="{{route('admin.contacts.createPage')}}" class="btn btn-success">Добавить контакты</a>
-
-    <div class="d-flex flex-wrap">
+   <div>
+    <a href="{{route('admin.contacts.createPage')}}" class="btn btn-primary">Добавить контакты</a>
+    <div class="card-container">
         @forelse($contacts as $contact)
-            <div class="card me-2" style="width: 18rem;">
-                <img src="{{$contact->image}}" class="card-img-top" alt="{{$contact->title}}">
-                <div class="card-body">
-                    <h5 class="card-title">{{$contact->phone}}</h5>
-                    <p class="card-text">{{$contact->email}}</p>
-                    <p class="card-text">{{$contact->fax}}</p>
-                    <p class="card-text">{{$contact->address}}</p>
-                    <p class="card-text">{{$contact->timejob}}</p>
-                    <p class="card-text">{{$contact->duration}}</p>
-                    <p class="card-text">{{$contact->reception}}</p>
+            <div class="card">
+                <div class="card-text">
+                    <h5 class="">{{$contact->phone}}</h5>
+                    <p class="">{{$contact->email}}</p>
+                    <p class="">{{$contact->fax}}</p>
+                    <p class="">{{$contact->address}}</p>
+                    <p class="">{{$contact->timejob}}</p>
+                    <p class="">{{$contact->duration}}</p>
+                    <p class="">{{$contact->reception}}</p>
                     <a href="{{route('admin.contacts.updatePage', $contact)}}" class="btn btn-primary">Редактировать</a>
                     <a href="{{route('admin.contacts.delete', $contact)}}" class="btn btn-danger">Удалить</a>
                 </div>
@@ -27,4 +26,5 @@
             </div>
         @endforelse
     </div>
+   </div>
 @endsection
