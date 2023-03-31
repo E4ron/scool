@@ -91,9 +91,6 @@ Route::middleware('auth')->group(function() {
                 Route::get('/create', [AdminController::class, 'documentsCreate'])->name('admin.documents.createPage');
                 Route::post('/create', [DocumentController::class, 'create'])->name('admin.documents.create');
 
-                Route::get('/edit/{document}', [AdminController::class, 'documentsUpdate'])->name('admin.documents.updatePage');
-                Route::post('/edit/{documents}', [DocumentController::class, 'edit'])->name('admin.documents.edit');
-
                 Route::get('/delete/{documents}', [DocumentController::class, 'delete'])->name('admin.documents.delete');
             });
 

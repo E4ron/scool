@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use App\Models\Document;
 
 class DocumentController extends Controller
@@ -17,6 +16,11 @@ class DocumentController extends Controller
            'document' => $path,
         ]);
 
+        return redirect()->route('admin.documents.index');
+    }
+
+    public function delete(Document $document) {
+        $document->delete();
         return redirect()->route('admin.documents.index');
     }
 }

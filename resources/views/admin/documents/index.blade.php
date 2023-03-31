@@ -4,7 +4,7 @@
 
 @section('content')
 <div>
-    <a href="{{route('admin.documents.createPage')}}" class="btn btn-primary">Добавить документ</a>
+    <a href="{{route('admin.documents.create')}}" class="btn btn-primary">Добавить документ</a>
 
     <div class="card-container">
         @forelse($documents as $document)
