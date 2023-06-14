@@ -3,7 +3,7 @@
 @section('title', 'Добавление')
 
 @section('content')
-<div>
+<div class="m-2">
     <h2 class="mt-2">Добавление преподователя</h2>
 
 <form method="post" action="{{route('admin.teachers.create')}}" enctype="multipart/form-data">
@@ -26,7 +26,7 @@
     </div>
     <div class="mb-3">
         <h5 class="mb-2">Изображение</h5>
-        <input required name="image" type="file" accept="image/jpeg,image/png,image/jpg,image/bpm" class="form-control" id="inputGroupFile02" >
+        <input  name="image" type="file" accept="image/jpeg,image/png,image/jpg,image/bpm" class="form-control">
     </div>
     <button type="submit" class="btn btn-primary">Создать</button>
 </form>

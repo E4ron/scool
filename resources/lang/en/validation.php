@@ -142,6 +142,12 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'document' => [
+            'max' =>'Файл должен быть не больше 15 мегабайт'
+        ],
+        'login' => [
+            'exists' =>'Выбранный логин неверный'
+        ],
     ],
 
     /*
@@ -155,6 +161,9 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'document' => 'документ',
+        'логин' => 'логин',
+    ],
 
 ];

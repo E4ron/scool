@@ -9,13 +9,14 @@ use App\Models\Teacher;
 use App\Models\Contact;
 use App\Models\Document;
 use App\Models\Intelligence;
+use App\Models\OrganizationStructure;
+use App\Models\CategoryDocument;
 
 class AdminController extends Controller
 {
     public function index() {
         return view('admin.index');
     }
-
     public function posts() {
         $posts = Post::get();
         return view('admin.posts.index', compact('posts'));
@@ -30,7 +31,7 @@ class AdminController extends Controller
     }
 
     public function teachers() {
-        $teachers = Teacher::get();
+        $teachers = Teacher::simplePaginate(8);
         return view('admin.teachers.index', compact('teachers'));
     }
 
@@ -57,40 +58,66 @@ class AdminController extends Controller
         return view('admin.contacts.edit', compact('contact', 'contacts'));
     }
 
-    public function documents() {
+    public function categoriesDocument(Document $document) {
         $documents = Document::get();
-        return view('admin.documents.index', compact('documents'));
+        $categorydocuments = CategoryDocument::get();
+        return view('admin.documents.categories.index', compact('categorydocuments','documents','document',));
+    }
+
+    public function categoriesDocumentCreate() {
+        return view('admin.documents.categories.create');
+    }
+
+    public function documents() {
+        $documents = Document::simplePaginate(28);
+        $categorydocuments = CategoryDocument::get();
+        return view('admin.documents.index', compact('documents', 'categorydocuments'));
     }
 
     public function documentsCreate() {
-        return view('admin.documents.create');
+        $categorydocuments = CategoryDocument::get();
+        return view('admin.documents.create', compact('categorydocuments'));
     }
 
-    public function documentsUpdate(Document $document) {
-        return view('admin.documents.edit', compact('document' ));
-    }
+    
 
-    public function categories() {
+    public function categories(Intelligence $intelligence) {
+        $intelligences = Intelligence::get();
         $categories = Categoryintelligence::get();
-        return view('admin.categories.index', compact('categories'));
+        return view('admin.categories.index', compact('categories','intelligences','intelligence',));
     }
 
     public function categoriesCreate() {
         return view('admin.categories.create');
     }
-    public function intelligences() {
+
+    
+
+    public function intelligences(Intelligence $intelligence) {
         $intelligences = Intelligence::get();
         $categories = Categoryintelligence::get();
-        return view('admin.intelligences.index', compact('intelligences','categories'));
+        return view('admin.intelligences.index', compact('intelligences','categories','intelligence',));
     }
-    public function intelligencesCreate() {
+    public function intelligencesCreate(Intelligence $intelligence) {
         $categories = Categoryintelligence::get();
-        return view('admin.intelligences.create', compact('categories'));
+        return view('admin.intelligences.create', compact('categories','intelligence',));
     }
 
     public function intelligencesUpdate(Intelligence $intelligence, Request $request) {
         $categories = Categoryintelligence::get();
-        return view('admin.intelligences.edit', compact('intelligence', 'categories'));
+        $intelligences = Intelligence::get();
+        return view('admin.intelligences.edit', compact('intelligences','intelligence', 'categories'));
+    }
+    public function organizationstructures() {
+        $organizationstructures = OrganizationStructure::get();
+        return view('admin.organizationstructures.index', compact('organizationstructures'));
     }
 
+    public function organizationstructuresCreate() {
+        return view('admin.organizationstructures.create');
+    }
+
+    public function organizationstructuresUpdate(OrganizationStructure $organizationstructure) {
+        return view('admin.organizationstructures.edit', compact('organizationstructure' ));
+    }
 }

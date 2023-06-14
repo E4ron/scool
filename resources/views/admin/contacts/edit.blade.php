@@ -3,7 +3,7 @@
 @section('title', 'Редактирование контактов')
 
 @section('content')
-<div>
+<div class="m-2">
     <h2 class="mt-2">Редактирование контактов</h2>
     <form method="post" action="{{route('admin.contacts.edit', $contact)}}" enctype="multipart/form-data">
         @method('post')
@@ -15,10 +15,6 @@
     <div class="mb-3">
         <label class="form-label">Почта</label>
         <input value="{{$contact->email}}" required type="text" name="email" class="form-control">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Факс</label>
-        <input value="{{$contact->fax}}" required type="text" name="fax" class="form-control">
     </div>
     <div class="mb-3">
         <label class="form-label">Адрес</label>

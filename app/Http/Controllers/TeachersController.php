@@ -4,13 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TeachersController extends Controller
 {
     public function create(Request $request) {
-        $path = $request->file('image')->store('public');
-        $path = str_replace('public', '/storage', $path);
-
+        if ($request->image) {
+            $path = $request->file('image')->store('public/img');
+            $path = str_replace('public/img', 'storage/img', $path);
+        }
+        else
+        {
+            $path = 'storage/img/teacher.png';
+            $path = str_replace('public/img', '/storage/img', $path);
+        }
         $teacher = Teacher::create([
            'name' => $request->name,
            'surname' => $request->surname,
@@ -31,8 +38,8 @@ class TeachersController extends Controller
         ];
 
         if ($request->image) {
-            $path = $request->file('image')->store('public');
-            $params['image'] = str_replace('public', '/storage', $path);
+            $path = $request->file('image')->store('public/img');
+            $params['image'] = str_replace('public/img', '/storage/img', $path);
         }
 
         $teacher->update($params);

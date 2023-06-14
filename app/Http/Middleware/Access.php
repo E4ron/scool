@@ -19,7 +19,9 @@ class Access
 
         $user = $request->user();
 
-        if($user->role !== $role) abort(403);
+        if($user->role !== $role) {
+            abort(403);
+        };
 
         return $next($request);
     }

@@ -3,7 +3,7 @@
 @section('title', 'Создание основные сведения')
 
 @section('content')
-<div>
+<div class="m-2">
     <h2 class="mt-2">Создание</h2>
 
 <form method="post" action="{{route('admin.intelligences.create')}}" enctype="multipart/form-data">
@@ -22,7 +22,6 @@
             @foreach($categories as $category)
                 <option value="{{$category->id}}">{{$category->title}}</option>
             @endforeach
-        </select>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Создать</button>

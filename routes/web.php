@@ -7,23 +7,36 @@ use App\Http\Controllers\CategoryIntelligenceController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\IntelligenceController;
+use App\Http\Controllers\OrganizationStructureController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\TeachersController;
+use App\Http\Controllers\CategoryDocumentController;
 
 // Главная
 Route::get('/', [PageController::class, 'index'])->name('home');
 Route::get('/news', [PageController::class, 'news'])->name('news');
+Route::get('/newsShow', [PageController::class, 'newsShow'])->name('newsShow');
+Route::get('/newsShow/{post}', [PageController::class, 'newsShow'])->name('newsShow');
 Route::get('/location', [PageController::class, 'location'])->name('location');
 Route::get('/intelligences', [PageController::class, 'intelligences'])->name('intelligences');
 Route::get('/teacher', [PageController::class, 'teacher'])->name('teacher');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+Route::get('/vacant', [PageController::class, 'vacant'])->name('vacant');
+Route::get('/providingeducational', [PageController::class, 'providingeducational'])->name('providingeducational');
+Route::get('/paideducationalservices', [PageController::class, 'paideducationalservices'])->name('paideducationalservices');
+Route::get('/organizationstructure', [PageController::class, 'organizationstructure'])->name('organizationstructure');
+Route::get('/internationalcooperation', [PageController::class, 'internationalcooperation'])->name('internationalcooperation');
+Route::get('/education', [PageController::class, 'education'])->name('education');
+Route::get('/availableenvironment', [PageController::class, 'availableenvironment'])->name('availableenvironment');
+Route::get('/activity', [PageController::class, 'activity'])->name('activity');
+Route::get('/document', [PageController::class, 'document'])->name('document');
+Route::get('/search', [PageController::class, 'search'])->name('search');
 
 // Роуты отправки писем
 Route::get('/send',[ContactController::class , 'send'])->name('send');
 Route::post('/send',[ContactController::class , 'send'])->name('send');
 
-Route::get('/document', [PageController::class, 'document'])->name('document');
  
 
 // Вход
@@ -91,7 +104,30 @@ Route::middleware('auth')->group(function() {
                 Route::get('/create', [AdminController::class, 'documentsCreate'])->name('admin.documents.createPage');
                 Route::post('/create', [DocumentController::class, 'create'])->name('admin.documents.create');
 
-                Route::get('/delete/{documents}', [DocumentController::class, 'delete'])->name('admin.documents.delete');
+                Route::get('/delete/{document}', [DocumentController::class, 'delete'])->name('admin.documents.delete');
+
+                Route::prefix('categoriesDocument')->group(function() {
+                    Route::get('/', [AdminController::class, 'categoriesDocument'])->name('admin.documents.categories.index');
+    
+                    Route::get('/create', [AdminController::class, 'categoriesDocumentCreate'])->name('admin.documents.categories.createPage');
+                    Route::post('/create', [CategoryDocumentController::class, 'create'])->name('admin.documents.categories.create');
+    
+                    Route::get('/delete/{categorydocument}', [CategoryDocumentController::class, 'delete'])->name('admin.documents.categories.delete');
+                });
+            });
+            // Руты Структура и органы управления образовательной организацией
+            Route::prefix('organizationstructures')->group(function() {
+                Route::get('/', [AdminController::class, 'organizationstructures'])->name('admin.organizationstructures.index');
+
+                Route::get('/create', [AdminController::class, 'organizationstructuresCreate'])->name('admin.organizationstructures.createPage');
+                Route::post('/create', [OrganizationStructureController::class, 'create'])->name('admin.organizationstructures.create');
+
+                
+                Route::get('/edit/{organizationstructure}', [AdminController::class, 'organizationstructuresUpdate'])->name('admin.organizationstructures.updatePage');
+                Route::post('/edit/{organizationstructure}', [OrganizationStructureController::class, 'edit'])->name('admin.organizationstructures.edit');
+
+
+                Route::get('/delete/{organizationstructures}', [OrganizationStructureController::class, 'delete'])->name('admin.organizationstructures.delete');
             });
 
             // Руты категорий основных сведений

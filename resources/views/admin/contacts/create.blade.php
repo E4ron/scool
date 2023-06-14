@@ -3,7 +3,7 @@
 @section('title', 'Добавить')
 
 @section('content')
-<div>
+<div class="m-2">
     <h2 class="mt-2">Добавить контакты</h2>
 
 <form method="post" action="{{route('admin.contacts.create')}}" enctype="multipart/form-data">
@@ -15,10 +15,6 @@
     <div class="mb-3">
         <label class="form-label">Почта</label>
         <input required type="email" name="email" class="form-control">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Факс</label>
-        <input required type="text" name="fax" class="form-control">
     </div>
     <div class="mb-3">
         <label class="form-label">Адрес</label>

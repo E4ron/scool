@@ -8,12 +8,21 @@ use App\Models\Post;
 class PostsController extends Controller
 {
     public function create(Request $request) {
-        $path = $request->file('image')->store('public');
-        $path = str_replace('public', '/storage', $path);
+
+        $path = $request->file('image')->store('public/img');
+        $path = str_replace('public/img', 'storage/img', $path);
+
+        $request->validate([
+            'title' => 'required|max:112',
+            'text' => 'required|max:512',
+            'date' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg'
+        ]);
 
         $post = Post::create([
            'title' => $request->title,
            'text' => $request->text,
+           'date' => $request->date,
            'image' => $path,
         ]);
 
@@ -24,11 +33,12 @@ class PostsController extends Controller
         $params = [
             'title' => $request->title,
             'text' => $request->text,
+            'date' => $request->date,
         ];
 
         if ($request->image) {
-            $path = $request->file('image')->store('public');
-            $params['image'] = str_replace('public', '/storage', $path);
+            $path = $request->file('image')->store('public/img');
+            $params['image'] = str_replace('public/img', 'storage/img', $path);
         }
 
         $post->update($params);

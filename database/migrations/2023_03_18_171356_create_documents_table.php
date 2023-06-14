@@ -17,6 +17,10 @@ class CreateDocumentsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('document');
+            $table->foreignId('categorydocuments_id')
+            ->constrained('categorydocuments')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -3,7 +3,7 @@
 @section('title', 'Категории')
 
 @section('content')
-<div>
+<div class="m-2">
     <a href="{{route('admin.categories.createPage')}}" class="btn btn-success">Создать категорию</a>
 <div class="card-container">
     @forelse($categories as $category)

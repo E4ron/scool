@@ -19,7 +19,7 @@ class CreateTeachersTable extends Migration
             $table->string("surname");
             $table->string("patronymic");
             $table->string("position");
-            $table->string('image');
+            $table->string('image')->null();
             $table->timestamps();
         });
     }

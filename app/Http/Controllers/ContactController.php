@@ -13,7 +13,6 @@ class ContactController extends Controller
         $contacts = Contact::create([
            'phone' => $request->phone,
            'email' => $request->email,
-           'fax' => $request->fax,
            'address' => $request->address,
            'timejob' => $request->timejob,
            'duration' => $request->duration,
@@ -27,7 +26,6 @@ class ContactController extends Controller
         $params = [
             'phone' => $request->phone,
             'email' => $request->email,
-            'fax' => $request->fax,
             'address' => $request->address,
             'timejob' => $request->timejob,
             'duration' => $request->duration,
@@ -47,9 +45,10 @@ class ContactController extends Controller
     public function send(Request $request){
         $username = $request->username;
         $useremail = $request->useremail;
+        $userphone = $request->userphone;
         $usertext = $request->usertext;
         if(!empty($username)) {
-            Mail::to('testrlaravel@gmail.com')->send(new MailClass($username,$useremail, $usertext));
+            Mail::to('testrlaravel@gmail.com')->send(new MailClass($username,$useremail, $usertext, $userphone));
         }
 
 

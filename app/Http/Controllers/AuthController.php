@@ -14,41 +14,20 @@ class AuthController extends Controller
             'login' => 'required|exists:users|alpha_dash',
             'password' => 'required|min:6'
         ]);
-
         $user = User::where([
-            'login'=> $request->login,])->first();
-
-            if (Hash::check($request->password, $user->password)) {
-                if (!$user) return response()->json([
-                    'errors' => [
-                        'password' => ['Неверный логин или пароль']
-                    ]
-                ], 422);
-            }
-
-
-
-        Auth::login($user, true);
-
-        
-        return $user;
-    }
-
-    public function register(Request $request) {
-        $request->validate([
-            'login' => 'required|unique:users|alpha_dash',
-            'password' => 'required|min:6',
-            'password_repeat' => 'required|same:password',
-        ]);
-
-        $user = User::create([
             'login'=> $request->login,
-            'password'=> Hash::make($request->password),
-        ]);
+            ])->first();
+            $password = Hash::make($user->password);
+            if (Hash::check($request->password,  $password)) {
+                Auth::login($user, true);
+                return redirect('/admin');
+            } 
+            else return response()->json([
+                'errors' => [
+                    'password' => ['Неверный логин или пароль']
+                ]
+            ], 422);
 
-        Auth::login($user, true);
-
-        return $user;
     }
 
     public function logout() {

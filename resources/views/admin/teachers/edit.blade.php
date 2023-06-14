@@ -3,7 +3,7 @@
 @section('title', 'Редактирование преподователя')
 
 @section('content')
-<div>
+<div class="m-2">
     <form method="post" action="{{route('admin.teachers.edit', $teacher)}}" enctype="multipart/form-data">
         @method('post')
         @csrf
@@ -25,7 +25,7 @@
         </div>
         <div class="mb-3">
             <h5 class="mb-2">Изображение</h5>
-            <input required name="image" type="file" accept="image/jpeg,image/png,image/jpg,image/bpm" class="form-control" id="inputGroupFile02">
+            <input  name="image" type="file" accept="image/jpeg,image/png,image/jpg,image/bpm" class="form-control" id="inputGroupFile02">
         </div>
         <button type="submit" class="btn btn-primary">Редактировать</button>
     </form>

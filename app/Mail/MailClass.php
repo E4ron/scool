@@ -13,16 +13,18 @@ class MailClass extends Mailable
     protected $username;
     protected $useremail;
     protected $usertext;
+    protected $userphone;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($username, $useremail,$usertext)
+    public function __construct($username, $useremail,$usertext,$userphone)
     {
         $this->username = $username;
         $this->useremail = $useremail;
+        $this->userphone = $userphone;
         $this->usertext = $usertext;
     }
 
@@ -36,6 +38,7 @@ class MailClass extends Mailable
         return $this->view('mail')->with([
             'username'=> $this -> username,
             'useremail'=> $this -> useremail,
+            'userphone'=> $this -> userphone,
             'usertext'=> $this -> usertext,
         ])->subject('Обратная связь');
     }

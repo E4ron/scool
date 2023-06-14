@@ -3,7 +3,8 @@
 @section('title', 'Авторизация')
 
 @section('content')
-    <h2 class="mt-4">Авторизация</h2>
+<div class="login-container">
+<h2 class="mt-4">Вход</h2>
     <form class="login-form">
         @method('post')
         @csrf
@@ -19,6 +20,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Войти</button>
     </form>
+</div>
 @endsection
 
 @push('scripts')
@@ -39,3 +41,4 @@
         }
     </script>
 @endpush
+

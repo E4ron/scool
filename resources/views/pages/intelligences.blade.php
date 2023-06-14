@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="container text-center">
+<div class="text-center">
     <h1>Основные сведения</h1>
     <div class="intelligences-container">
         @if($categories)

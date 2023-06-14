@@ -3,7 +3,7 @@
 @section('title', 'Редактирование товара')
 
 @section('content')
-<div>
+<div class="m-2">
     <h2 class="mt-2">Редактировать новость</h2>
     <form method="post" action="{{route('admin.posts.edit', $post)}}" enctype="multipart/form-data">
         @method('post')
@@ -15,6 +15,10 @@
         <div class="mb-3">
             <label class="form-label">Текст</label>
             <input required value="{{$post->text}}" type="text" name="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Дата</label>
+            <input required type="date" value="{{$post->date}}" name="date" class="form-control">
         </div>
         <div class="mb-3">
             <h5 class="mb-2">Изображение</h5>

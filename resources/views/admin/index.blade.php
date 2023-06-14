@@ -6,12 +6,8 @@
 
     <title>Админ панель - @yield('title')</title>
 
-    <!-- Fonts -->
-
-    <!-- Styles -->
-
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/styles.css')}}">
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/styles.css">
 </head>
 <body>
 <div class="admin-container">
@@ -21,7 +17,8 @@
             <a href="{{route('admin.posts.index')}}" class="">Новости</a>
             <a href="{{route('admin.contacts.index')}}" class="">Контакты</a>
             <a href="{{route('admin.documents.index')}}" class="">Документы</a>
-            <a href="{{route('admin.teachers.index')}}" class="">Преподователи</a>
+            <a href="{{route('admin.teachers.index')}}" class="">Преподаватели</a>
+            <a href="{{route('admin.organizationstructures.index')}}" class="">Структура и органы управления образовательной организацией</a>
             <div class="dropdown-admin">
                 <a class="dropbtn-admin">Основные сведения</a>
                 <div class="dropdown-content-admin">
@@ -34,8 +31,8 @@
     @yield('content')
 </div>
 
-<script src="{{asset('js/jquery.min.js')}}"></script>
-<script src="{{asset('js/bootstrap.min.js')}}"></script>
+<script src="../../../../js/jquery.min.js"></script>
+<script src="../../../../js/bootstrap.min.js"></script>
 @stack('scripts')
 </body>
 </html>
